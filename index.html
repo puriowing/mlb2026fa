@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MLB 2026オフ向け FA ハンドブック</title>
+<title>MLB 2026オフ向け FA ハンドブック（添付CSV反映・備考なし）</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -14,15 +14,15 @@
     --line: #e5e7eb;
   }
   html, body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; margin: 0; }
-  header { padding: 24px 20px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #ffffff; z-index: 3; }
-  h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: .2px; }
+  header { padding: 8px 12px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #ffffff; z-index: 3; }
+  h1 { margin: 0; font-size: 18px; letter-spacing: .2px; }
   .sub { color: var(--muted); font-size: 13px; }
   .wrap { max-width: 1200px; margin: 0 auto; padding: 20px; }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin: 18px 0; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
   .card h2 { margin: 0 0 10px; font-size: 18px; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
-  th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; vertical-align: top; overflow: hidden; text-overflow: ellipsis; }
-  th { text-align: left; color: #334155; position: sticky; top: 72px; background: var(--card); z-index: 1; }
+  th, td { border-bottom: 1px solid var(--line); padding: 8px 6px; vertical-align: top; overflow: hidden; text-overflow: ellipsis; }
+  th { text-align: left; color: #334155; position: sticky; top: 48px; background: var(--card); z-index: 1; }
   tbody tr:hover { background: rgba(0,0,0,0.03); }
   .img { display: flex; align-items: center; gap: 10px; min-width: 200px; }
   .img img { width: 54px; height: 54px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); background: #eef2f7; flex: 0 0 auto; }
@@ -36,17 +36,44 @@
 
   .sortable th { cursor: pointer; user-select: none; }
   .sort-ind { font-size: 11px; opacity: .7; margin-left: 4px; }
+
+/* ===== Mobile-friendly tweaks ===== */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fit-logos{display:inline-flex;gap:6px;align-items:center;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;max-width:100%}
+.fit-logos::-webkit-scrollbar{height:6px}
+.fit-logos img{width:22px;height:22px;border-radius:4px;border:1px solid var(--line,#e5e7eb);background:#fff;object-fit:contain;padding:2px;flex:0 0 auto}
+
+.sortable th{cursor:pointer;user-select:none}
+.sort-ind{font-size:11px;opacity:.7;margin-left:4px}
+
+@media (max-width:860px){
+  table{font-size:12px}
+  th,td{padding:8px 6px}
+  /* Disable sticky first column on small screens to allow smooth horizontal scroll */
+  .sticky-col{position:static !important}
+  /* Wider fit column */
+  table th:nth-child(7), table td:nth-child(7){min-width:320px}
+  .img img{width:44px;height:44px}
+}
+@media (max-width:480px){
+  table{font-size:11.5px}
+  header{padding:14px 12px}
+  .wrap{padding:12px}
+  th{top:56px}
+  table th:nth-child(7), table td:nth-child(7){min-width:360px}
+}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <h1>MLB 2026オフ向け FA ハンドブック</h1>
-  </div>
+    </div>
 </header>
 
 <div class="wrap">
   <div class="card" id="fa">
+    <div class="table-wrap">
     <h2>FA候補一覧</h2>
     <table class="sortable">
       <thead>
@@ -2306,6 +2333,7 @@
     
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 
